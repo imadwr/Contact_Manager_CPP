@@ -9,14 +9,15 @@ int main(){
 	
 	
 	do {
-		cout << "\n\t**********Contact Manager Application**********";
+		system("CLS");
+		cout << "\n\t********** CONTACT MANAGER APP **********";
 		cout << "\n\n";
-		cout << "\t\tMain Menu:";
+		cout << "\t\tMAIN MENU:";
 		cout << "\n\t\t----------------------";
-		cout << "\n\t\t[1] Add a new Contact";
+		cout << "\n\t\t[1] Add new Contact";
 		cout << "\n\t\t[2] Edit a Contact";
 		cout << "\n\t\t[3] Show all Contacts";
-		cout << "\n\t\t[4] Search for Contact";
+		cout << "\n\t\t[4] Find a Contact";
 		cout << "\n\t\t[5] Delete a Contact";
 		cout << "\n\t\t[0] Exit";
 		cout << "\n\t\t----------------------";
@@ -25,23 +26,42 @@ int main(){
 		
 		switch(choice){
 			case 1:
-				//add contact
+				system("CLS");
+				writeOnFile();
 				break;
 			case 2:
 				//edit contact
 				break;
 			case 3:
-				//show contacts
+				system("CLS");
+				readFromFile();
 				break;
 			case 4:
-				//shearch for cointact
+				system("CLS");
+				searchOnFile();
 				break;
 			case 5:
-				//delete contact
+				system("CLS");
+				deleteFromFile();
 				break;
 			case 0:
 				break;
 			default: 
+			continue;
+		}
+		
+		int opt;
+		cout << "\n\n..::Entrer votre choix:\n[1] Menu principal\t\t[0] QUITTER\n";
+		cin >> opt;
+
+		switch (opt) {
+		case 0:
+			system("cls");
+			cout << "\n\n\n\t\t\tMerci de utilliser notre application." << endl << endl;
+			exit(0);
+			break;
+
+		default:
 			continue;
 		}
   
