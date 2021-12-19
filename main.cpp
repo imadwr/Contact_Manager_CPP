@@ -10,7 +10,7 @@ int main(){
 	
 	do {
 		system("CLS");
-		cout << "\n\t********** CONTACT MANAGER APP **********";
+		cout << "\n\t********** CONTACTS MANAGER APP **********";
 		cout << "\n\n";
 		cout << "\t\tMAIN MENU:";
 		cout << "\n\t\t----------------------";
@@ -52,13 +52,13 @@ int main(){
 		}
 		
 		int opt;
-		cout << "\n\n..::Entrer votre choix:\n[1] Menu principal\t\t[0] QUITTER\n";
+		cout << "\n\n..::Make a choice:\n[1] MAIN MENU\t\t[0] EXIT\n";
 		cin >> opt;
 
 		switch (opt) {
 		case 0:
 			system("cls");
-			cout << "\n\n\n\t\t\tMerci de utilliser notre application." << endl << endl;
+			cout << "\n\n\n\t\t\tThanks for Using Contacts Manager APP" << endl << endl;
 			exit(0);
 			break;
 
