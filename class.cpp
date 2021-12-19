@@ -110,6 +110,7 @@ void deleteFromFile(){
 	ifstream f;
 	ofstream f1;
 	long phone;
+	bool found = false;
 	
 	cout << "Enter phone number of contact to delete: ";
 	cin >> phone;
@@ -121,6 +122,8 @@ void deleteFromFile(){
 		if(f.read(reinterpret_cast<char*>(&C), sizeof(Contact))){
 			if(phone != C.getPhoneN()){
 				f1.write(reinterpret_cast<char*>(&C), sizeof(Contact));
+			} else {
+				found = true;
 			}
 		}
 	}
@@ -128,7 +131,46 @@ void deleteFromFile(){
 	f1.close();
 	remove("CMS.dat");
 	rename("TEMP.dat","CMS.dat");
-	cout<<endl<<"Contact has been Sucessfully Deleted...";
+	if(found){
+		cout<<endl<<"Contact has been Sucessfully Deleted...";
+	} else {
+		cout <<endl << "Contact with this phone number doesn't exist...";
+	}
+}
+
+void editOnFile(){
+	ifstream f;
+	ofstream f1;
+	long phone;
+	bool found;
+	
+	cout << "Enter phone number of contact to modify: ";
+	cin >> phone;
+	
+	f.open("CMS.dat", ios::binary);
+	f1.open("TEMP.dat", ios::binary);
+	f.seekg(0,ios::beg);
+	while(!f.eof()){
+		if(f.read(reinterpret_cast<char*>(&C), sizeof(Contact))){
+			if(phone != C.getPhoneN()){
+				f1.write(reinterpret_cast<char*>(&C), sizeof(Contact));
+			} else {
+				C.createContact();
+				f1.write(reinterpret_cast<char*>(&C), sizeof(Contact));
+				found = true;
+			}
+		}
+	}
+	f.close();
+	f1.close();
+	remove("CMS.dat");
+	rename("TEMP.dat","CMS.dat");
+	if(found){
+		cout<<endl<<"Contact has been Sucessfully Modified...";
+	} else {
+		cout <<endl << "Contact with this phone number doesn't exist...";
+	}
+	
 }
 
 

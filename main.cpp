@@ -30,7 +30,8 @@ int main(){
 				writeOnFile();
 				break;
 			case 2:
-				//edit contact
+				system("CLS");
+				editOnFile();
 				break;
 			case 3:
 				system("CLS");
